@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CSYT CefSharp")]
+[assembly: AssemblyTitle("CSYT")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CSYT CefSharp")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyProduct("CSYT")]
+[assembly: AssemblyCopyright("Copyright ©  2018 Lucas Lean")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

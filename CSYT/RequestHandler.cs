@@ -8,7 +8,7 @@ using CefSharp;
 using CefSharp.Wpf;
 using System.IO;
 
-namespace CSYT_CefSharp
+namespace CSYT
 {
     class RequestHandler : IRequestHandler
     {

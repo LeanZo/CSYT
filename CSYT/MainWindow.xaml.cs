@@ -2,8 +2,9 @@
 using System.Windows;
 using System.Windows.Input;
 using System.IO;
+using System.Windows.Media.Imaging;
 
-namespace CSYT_CefSharp
+namespace CSYT
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -17,11 +18,9 @@ namespace CSYT_CefSharp
             WebBrowser.RequestHandler = new RequestHandler();
         }
 
-        private void W_Closed(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            File.Create("log.txt").Close();
-
-            File.WriteAllText("log.txt", this.Width + " Width - " + this.Height + " Height");
+            CefSharp.Cef.Shutdown();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -34,14 +33,13 @@ namespace CSYT_CefSharp
             var window = sender as Window;
 
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.N))
-            {
                 new ChangeUrl(this).ShowDialog();
-            }
 
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.Z) && window.WindowState == WindowState.Maximized)
-            {
                 window.WindowState = WindowState.Normal;
-            }
+
+            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.S))
+                new Settings(this).ShowDialog();
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -73,7 +71,6 @@ namespace CSYT_CefSharp
                 {
                     window.Width -= Width;
                     window.Height = Ratio * window.Width;
-
                 }
             }
         }

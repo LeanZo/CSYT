@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSYT CefSharp", "CSYT CefSharp\CSYT CefSharp.csproj", "{28C1DBA5-204F-4DBD-8374-B7FA6537D104}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSYT", "CSYT\CSYT.csproj", "{28C1DBA5-204F-4DBD-8374-B7FA6537D104}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52718A53-DD2A-435E-9579-2B1EE5CA7E18}"
+	ProjectSection(SolutionItems) = preProject
+		NOTICES.txt = NOTICES.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
