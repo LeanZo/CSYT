@@ -11,7 +11,7 @@ I watch a lot of Youtube videos and always wanted for an easy way to watch and d
 
 ## Built With
 
-* [CefSharp](https://github.com/cefsharp/CefSharp) - The web framework used
+* [CefSharp](https://github.com/cefsharp/CefSharp) - The wrapper used
 
 ## Contributing
 
