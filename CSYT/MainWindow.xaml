@@ -7,7 +7,7 @@
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
-        Title="CSYT" Height="394" Width="682" MinHeight="78" MinWidth="136" Topmost="True" Closing="Window_Closing" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize">
+        Title="CSYT" Height="394" Width="682" MinHeight="78" MinWidth="136" Topmost="True" Closing="Window_Closing" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize" >
     
     <Window.Style>
         <Style TargetType="{x:Type Window}">
