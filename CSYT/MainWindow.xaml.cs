@@ -15,7 +15,10 @@ namespace CSYT
         {
             InitializeComponent();
 
+            Title = VersionInfo.AppNameVersion;
+            
             WebBrowser.RequestHandler = new RequestHandler();
+
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

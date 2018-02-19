@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CSYT")]
-[assembly: AssemblyCopyright("Copyright ©  2018 Lucas Lean")]
+[assembly: AssemblyCopyright("Copyright ©  2018  Lucas Lean")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
