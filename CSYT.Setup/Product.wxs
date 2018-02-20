@@ -1,7 +1,6 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define CSYT_TargetDir=$(var.CSYT.TargetDir)?>
-	<Product Id="f4ea687a-cc12-4e5d-b4bc-cde06de64b40" Name="CSYT" Language="1033" Version="1.0.0.0" Manufacturer="Luks" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
+	<Product Id="f4ea687a-cc12-4e5d-b4bc-cde06de64b40" Name="CSYT" Language="1033" Version="1.0" Manufacturer="CSYT" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
     <Icon Id="video.ico" SourceFile="$(var.ProjectDir)video.ico"/>
@@ -43,11 +42,11 @@
       <Component Id="ApplicationShortcut" Guid="af8f6095-daec-4500-941b-1328a77b68dc">
         <Shortcut Id="ApplicationStartMenuShortcut"
                   Name="CSYT"
-                  Description="My Application Description"
+                  Description="Watch Youtube videos whike doing other stuff"
                   Target="[#CSYT.exe]"
                   WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
         <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Microsoft\CSYT" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software\CSYT" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
     
@@ -55,11 +54,11 @@
       <Component Id="ApplicationShortcutDesktop" Guid="fd7bc59a-d7eb-4987-99a7-76cdc09f952d">
           <Shortcut Id="ApplicationDesktopShortcut"
                   Name="CSYT"
-                  Description="My Application Description"
+                  Description="Watch Youtube videos whike doing other stuff"
                   Target="[#CSYT.exe]" 
                   WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
           <RemoveFolder Id="DesktopFolder" Directory="DesktopFolder" On="uninstall" />
-          <RegistryValue Root="HKCU" Key="Software\Microsoft\CSYT" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+          <RegistryValue Root="HKCU" Key="Software\MCSYT" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
     
