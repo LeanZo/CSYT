@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography.X509Certificates;
 using CefSharp;
-using CefSharp.Wpf;
-using System.IO;
 
 namespace CSYT
 {
+    // Sets the referrer so it can play some copyrighted videos
     class RequestHandler : IRequestHandler
     {
         bool IRequestHandler.GetAuthCredentials(IWebBrowser browserControl, IBrowser browser, IFrame frame, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
@@ -29,11 +23,6 @@ namespace CSYT
 
         CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
         {
-            //File.AppendAllText("log.txt", " referrer -" + request.ReferrerUrl + " ;");
-            var headers = request.Headers;
-            headers["Referer"] = "https://www.youtube.com";
-            headers["Referrer"] = "https://www.youtube.com";
-            request.Headers = headers;
             request.SetReferrer("https://www.youtube.com", ReferrerPolicy.Default);
             return CefReturnValue.Continue;
         }

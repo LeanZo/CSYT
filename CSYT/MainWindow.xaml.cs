@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.IO;
-using System.Windows.Media.Imaging;
 
 namespace CSYT
 {
@@ -15,7 +13,7 @@ namespace CSYT
         {
             InitializeComponent();
 
-            Title = VersionInfo.AppNameVersion;
+            Title = VersionInfo.AppNameAndVersion;
             
             WebBrowser.RequestHandler = new RequestHandler();
 
@@ -52,29 +50,26 @@ namespace CSYT
             if (window.WindowState == WindowState.Minimized) window.WindowState = WindowState.Normal;
         }
 
+        // Resize maintaining ratio
         private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var window = sender as Window;
 
-            int Width = 10;
+            int width = 10;
 
-            double Ratio = 0.5777126099706745;
+            double ratio = 0.5777126099706745;
 
-            if (Keyboard.IsKeyDown(Key.LeftShift))
-                Width = 20;
+            if (Keyboard.IsKeyDown(Key.LeftShift)) width = 20;
 
             if (e.Delta > 0)
             {
-                window.Width += Width;
-                window.Height = Ratio * window.Width;
+                window.Width += width;
+                window.Height = ratio * window.Width;
             }
-            else
+            else if (window.Width > 20)
             {
-                if (window.Width > 20)
-                {
-                    window.Width -= Width;
-                    window.Height = Ratio * window.Width;
-                }
+                window.Width -= width;
+                window.Height = ratio * window.Width;
             }
         }
     }

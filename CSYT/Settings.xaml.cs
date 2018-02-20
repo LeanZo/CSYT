@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Configuration;
+﻿using System.Windows;
 
 namespace CSYT
 {
@@ -37,6 +24,7 @@ namespace CSYT
             Chk_VideoInfo.IsChecked = Properties.Settings.Default.C_VideoInfo == 1 ? true : false;
         }
 
+        // Saves settings
         private void Btn_OK_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.C_Autoplay = Chk_Autoplay.IsChecked.Value ? 1 : 0;
