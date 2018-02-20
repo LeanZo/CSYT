@@ -1,0 +1,322 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define CSYT_TargetDir=$(var.CSYT.TargetDir)?>
+	<Product Id="f4ea687a-cc12-4e5d-b4bc-cde06de64b40" Name="CSYT" Language="1033" Version="1.0.0.0" Manufacturer="Luks" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
+
+    <Icon Id="video.ico" SourceFile="$(var.ProjectDir)video.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="video.ico" />
+    
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="gpl-3.0.rtf" />
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+    
+		<Feature Id="ProductFeature" Title="CSYT" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut"/>
+      <ComponentRef Id="ApplicationShortcutDesktop"/>
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="CSYT">
+          <Directory Id="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Name="locales" />
+            <Directory Id="dirD8D873DB23CDC7E25831137BFE3063CC" Name="swiftshader" />
+        </Directory>
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="CSYT"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+    
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="af8f6095-daec-4500-941b-1328a77b68dc">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="CSYT"
+                  Description="My Application Description"
+                  Target="[#CSYT.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\CSYT" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="fd7bc59a-d7eb-4987-99a7-76cdc09f952d">
+          <Shortcut Id="ApplicationDesktopShortcut"
+                  Name="CSYT"
+                  Description="My Application Description"
+                  Target="[#CSYT.exe]" 
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+          <RemoveFolder Id="DesktopFolder" Directory="DesktopFolder" On="uninstall" />
+          <RegistryValue Root="HKCU" Key="Software\Microsoft\CSYT" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    
+  </Fragment>
+
+	<Fragment>
+
+		<ComponentGroup Id="ProductComponents">
+      
+
+
+            <Component Id="cmp905B92C7480D85174D972D127BEF1672" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5C3C2906BAA5A60EEC0F0BBCEC84265C" KeyPath="yes" Source="$(var.CSYT.TargetDir)\cef.pak" />
+            </Component>
+            <Component Id="cmpAFCAA98AFB62DF3B248DC9CAED17DD37" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD90C7BE5C1E5F6EF317AD2E7445D0AAA" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.BrowserSubprocess.Core.dll" />
+            </Component>
+            
+            <Component Id="cmpAE29693923A91CD6C369DDCB5B5D6ACA" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCE058F263B387388636EA1F597B5DDBC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.BrowserSubprocess.exe" />
+            </Component>
+            
+            <Component Id="cmp28F19B6CBAB636E31D16E5433D9847D7" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5FF9BE1788B81EA1D39D79723621FB02" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.Core.dll" />
+            </Component>
+            
+            
+            <Component Id="cmp1A4771FD587C245AE9A654EC370A444E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA5593F07E76B0070B800F1353D90BC6A" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.dll" />
+            </Component>
+            
+            <Component Id="cmp9298EDD27A676A85ACB220DC1772A814" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filBB543329B6816D0EE9FF1E8C96E66C66" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.Wpf.dll" />
+            </Component>
+            
+            <Component Id="cmp7D54A496593082B474151D60AEAF1831" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5681FF2E4C6386011D22801707C72503" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.Wpf.XML" />
+            </Component>
+            <Component Id="cmp421726FC9F4CAABA13434F7ABB94A4CE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil034C12E46A6E0D64AAEBDEFDF18A3F1C" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CefSharp.XML" />
+            </Component>
+            <Component Id="cmp3942B67AD9C83EECF468E5C207257CD5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil478E956488460BEA1984CDB3E9FB0003" KeyPath="yes" Source="$(var.CSYT.TargetDir)\cef_100_percent.pak" />
+            </Component>
+            <Component Id="cmpA289AE38D297656749210D72CB82F7B9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE42C7DE5E0AC1AB999E466450C5A112E" KeyPath="yes" Source="$(var.CSYT.TargetDir)\cef_200_percent.pak" />
+            </Component>
+            <Component Id="cmpFD713C329FB71A354536AF88DDB396A7" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE31904625655C8551FFBB4E315F3335E" KeyPath="yes" Source="$(var.CSYT.TargetDir)\cef_extensions.pak" />
+            </Component>
+            <Component Id="cmpD2C0C710A37A25F1E57727137D252811" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA7476799F436601AC3F8521340A9910A" KeyPath="yes" Source="$(var.CSYT.TargetDir)\chrome_elf.dll" />
+            </Component>
+            <Component Id="CSYT.exe" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="CSYT.exe" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CSYT.exe" />
+            </Component>
+            <Component Id="cmp3FAFF7CA0E7AF1E75A6802F1E6DD716D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil0EE7F6A10FBFD4648DACBD4534CE6671" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CSYT.exe.config" Hidden="yes"/>
+            </Component>
+            
+            <Component Id="cmpA75D4856868A73F269877673BCA4965F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9747C2DDAD34F897CE7C1AE9A6410D70" KeyPath="yes" Source="$(var.CSYT.TargetDir)\d3dcompiler_47.dll" />
+            </Component>
+            <Component Id="cmp5C9322F9A282382E197BBF56885AB179" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil47A9C31A3570411753546AEE73E1D9AC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\devtools_resources.pak" />
+            </Component>
+            <Component Id="cmp676BAF72612E2685DFB2669916B717E6" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCD85ADF0EF6B4784072F5A37634C10A5" KeyPath="yes" Source="$(var.CSYT.TargetDir)\icudtl.dat" />
+            </Component>
+            <Component Id="cmpE1FB2DF4E946F56B2F1AB34B6170AA9F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9D4CDB1788A07DF5DA44AA62B4483BF5" KeyPath="yes" Source="$(var.CSYT.TargetDir)\libcef.dll" />
+            </Component>
+            <Component Id="cmp00382789CC4D0BBEFAA70D0770A6A6F5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF82B54C3DB474E6B204466FB5B7AE0EF" KeyPath="yes" Source="$(var.CSYT.TargetDir)\libEGL.dll" />
+            </Component>
+            <Component Id="cmp7B571C0781C3AABA25C3B73763EAF689" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil10BB1F5066BA44163207442A0B2A3714" KeyPath="yes" Source="$(var.CSYT.TargetDir)\libGLESv2.dll" />
+            </Component>
+            <Component Id="cmpB9D678165EC60295A81A62603388754D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB33BC5655A2A0C06D7E3DB83D3A3FE17" KeyPath="yes" Source="$(var.CSYT.TargetDir)\natives_blob.bin" />
+            </Component>
+            <Component Id="cmp14E2D9C1E44C8BBFCE98C0CF4DEBD953" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil3F32474131D79E82B2EB63E895BED428" KeyPath="yes" Source="$(var.CSYT.TargetDir)\snapshot_blob.bin" />
+            </Component>
+            <Component Id="cmp4D8754CB62276E353E0C27B18A9874DC" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil796FDE3F980C9C16A1B19B5BA6B1870E" KeyPath="yes" Source="$(var.CSYT.TargetDir)\v8_context_snapshot.bin" />
+            </Component>
+            <Component Id="cmp3B24A4155E72BAE0D25104A34C614EFE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil070DDD34A8254275A5494072612320BF" KeyPath="yes" Source="$(var.CSYT.TargetDir)\widevinecdmadapter.dll" />
+            </Component>
+            <Component Id="cmpE7952A20135FE43CDF8CBA00AD67B570" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil6F6997C1BA06B0AC8FCC8DD8E68131F4" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\am.pak" />
+            </Component>
+            <Component Id="cmpC5D92045F7F736AF114822EF5BAFEBC1" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filA28F3561A060CFBFED7450D6A6EB35D1" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ar.pak" />
+            </Component>
+            <Component Id="cmp2C641F21E5EF7642ECE251C5DB88EFD9" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filEBC7A2573DC1138F25A4F649FE505475" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\bg.pak" />
+            </Component>
+            <Component Id="cmp49D40D4659B1043C643B95B2A0641FDC" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil505B75F9553AE49A9DC43A5960932D04" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\bn.pak" />
+            </Component>
+            <Component Id="cmp0FE819315C720522ECACD7266BFE6B4F" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil1D30BFFFAC58029C3C2741700A27BB6D" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ca.pak" />
+            </Component>
+            <Component Id="cmpE403A4DD3A16D0856DFD6B89D563FA11" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil045A9102750CC2BDFF03386370157282" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\cs.pak" />
+            </Component>
+            <Component Id="cmp90CDB14888419CCCC62B5E6375F49E0A" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filF6AC173D8CC2D5B62DCD8A1077DA9644" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\da.pak" />
+            </Component>
+            <Component Id="cmp6B86978ADAD603FAC4610EB9011F2B10" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filD3C4925CDB4EB9C76E172CCF58AF607D" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\de.pak" />
+            </Component>
+            <Component Id="cmpB0A5D84A739CBBA109F28F92170DE06D" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil0E8A8B7AC714287F70A9FEED18CC5C6B" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\el.pak" />
+            </Component>
+            <Component Id="cmpD1530D5237442D6818CA6C8E591F4310" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil59DC5743ECCAE835BCCF12F0FA80357B" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\en-GB.pak" />
+            </Component>
+            <Component Id="cmpA5CB9EA23A0E6797D0FDD2D26D2CAFB9" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil502A9C9715F71E0E7E1319DEC6914962" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\en-US.pak" />
+            </Component>
+            <Component Id="cmp59E63BE0EE248BAAF3B4E7FF94F76301" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil854BC8C5B3F18FE5907F556E236BF6C4" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\es-419.pak" />
+            </Component>
+            <Component Id="cmp19B6C097D29ABA9AB991D55EF7B0CC46" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil1FEF73742FE4FC37735B87DF53B6C76C" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\es.pak" />
+            </Component>
+            <Component Id="cmp18D1BC5CF6E03412477E92216AB8848F" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil1B6A71812C37863AAEB3D611AC1993F0" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\et.pak" />
+            </Component>
+            <Component Id="cmp5C651EC94D977832838CF49B2488271D" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filBBE59E884D5D3BCD40C2DAC9E370FAFC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\fa.pak" />
+            </Component>
+            <Component Id="cmpDDCA22E606D2BEB1D2E5A47EAE8E7553" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil9BE217AC70196EC3480E13133123F58E" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\fi.pak" />
+            </Component>
+            <Component Id="cmp751EB5BCDC4847E9700AF09991543888" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filC3B23F03ECD1B1A5C6BF3DDCE0149229" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\fil.pak" />
+            </Component>
+            <Component Id="cmpA66F8E102D859E76FE632F897AFAE737" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil88A1D7E8AB0340B88DD681C567396400" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\fr.pak" />
+            </Component>
+            <Component Id="cmpA844FF42BB33005C3EFAB1CB229E6899" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil4E3A6E9D7EC66399B519940F12D7D834" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\gu.pak" />
+            </Component>
+            <Component Id="cmp355325698635C993AB743614597FEB68" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil34917E714178D2E00F16569F8F6E77A9" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\he.pak" />
+            </Component>
+            <Component Id="cmp7BC47AF315D36EB2EA8521D6DC769530" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filEAC9BDD1316502328DA5B26655D6066E" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\hi.pak" />
+            </Component>
+            <Component Id="cmp833A7F8D068E2198AFF3D5331EA4609A" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil7AE4C9E214B9368D68D409750249BB36" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\hr.pak" />
+            </Component>
+            <Component Id="cmpCEE84F090674695CFCFE6DA71B57CC56" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil6853F9B64A0477BBA26DA8DA4AC14512" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\hu.pak" />
+            </Component>
+            <Component Id="cmp108B301CF26F446F7C3BFE6323B31177" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filE9DAE37889AF434F553F22F8590776A2" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\id.pak" />
+            </Component>
+            <Component Id="cmp5C93F50CD3599355EBD54A0CC974DE37" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filC756DE185A5C793FCF2D1D303FFCBF46" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\it.pak" />
+            </Component>
+            <Component Id="cmp175108537F98326AA837572EB9EF10BB" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil2AFA41B3191D9274E199C52C38912AFC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ja.pak" />
+            </Component>
+            <Component Id="cmpA0BF93193CB3A116CD24B5E1FAE9FDF3" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil7BCE5AB3123C44B7467F99413B0D4454" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\kn.pak" />
+            </Component>
+            <Component Id="cmpD3A0F714F6794C28D16566C368520D04" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil20E78025B69F62A1B8F77D255EC1AED2" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ko.pak" />
+            </Component>
+            <Component Id="cmp0BAAB75145D6A0D771A271B371932DC4" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil41A88C44A53026AA5CF1AD9FA4166944" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\lt.pak" />
+            </Component>
+            <Component Id="cmpF6255BF7EC6B9A5E30ED6E06741AAD4D" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil29EE525F515B3546AFE5308F2295AACB" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\lv.pak" />
+            </Component>
+            <Component Id="cmp7220E1B4B095610E951C122CC5E83A34" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil942D3AFAB85A83E3CB76728765960B71" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ml.pak" />
+            </Component>
+            <Component Id="cmp267C69E88EA8FB37F2E2D01084384DF9" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filB9FA09FA0398630DEFAC364DED92500B" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\mr.pak" />
+            </Component>
+            <Component Id="cmp06ABAAFAE6309287C478402A910534FA" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filA32C4351CB191F568E5547B0E47A49BF" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ms.pak" />
+            </Component>
+            <Component Id="cmpC6B6763F8080AD2BA785103AAED32E01" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filA8A05DB7873F7C445E15997970A6C8B2" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\nb.pak" />
+            </Component>
+            <Component Id="cmpCC39E46DB7F297F90AFB5346B0572F89" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil6105D2AAB3F06EF94EF321B388944CAC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\nl.pak" />
+            </Component>
+            <Component Id="cmp78EF725F8F966DAA8849D801D82C2449" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filE542679922CAE18E92333164FC25A137" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\pl.pak" />
+            </Component>
+            <Component Id="cmp9EFBA601991C5F9978EDACC3FBD50D60" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil44C0E0E1B876D8A90ABABAC5DD6EA804" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\pt-BR.pak" />
+            </Component>
+            <Component Id="cmp6DBBEA85327ED70B6D684359326F40A0" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filD9017A448180C54BE19EC6AC71BCA695" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\pt-PT.pak" />
+            </Component>
+            <Component Id="cmp71499108D27965BFE388B85A9FD8F476" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil95E63A5AD5A51B85F2F2BBFAE4C1F76A" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ro.pak" />
+            </Component>
+            <Component Id="cmp6BE19C103850529680DF2BCAB4359DD3" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil1AA95617D3A0CCE780D1014E3B815983" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ru.pak" />
+            </Component>
+            <Component Id="cmp569512D0C8D3DCE0DC2A8F5951781C22" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filF1F92374BBEBF7F3EBFE71EC8791F687" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\sk.pak" />
+            </Component>
+            <Component Id="cmp0C938E90741C3F93CB1E73D67F8055C8" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil856101B598993DC594AEE1014280E7A6" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\sl.pak" />
+            </Component>
+            <Component Id="cmp6A9B3912070C2622D19BBF1B00010AA3" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filB08E12419BFCF8EAAC7F2B91FD8CDC1D" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\sr.pak" />
+            </Component>
+            <Component Id="cmp6A8803F583ABD751341C3ADD6F0F92A6" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil51F044574243E3EA649C36F540D7DA2F" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\sv.pak" />
+            </Component>
+            <Component Id="cmp4D8A0D737C10658053E647E61A7FAB6D" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil16746AE955492A2F1CE8BFB6D3674865" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\sw.pak" />
+            </Component>
+            <Component Id="cmp2A200B34406E7B165A0CAABD63F45B32" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil2890775F9219EB48A3DF25D2347AECA8" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\ta.pak" />
+            </Component>
+            <Component Id="cmpAE6E2505691B9AA4452F2114A42CD10D" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil51C5FDE5BE82D01039BFC9B4A94BAC28" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\te.pak" />
+            </Component>
+            <Component Id="cmpB6F193B922B799D2224942E8A4C8B9CC" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filD18FF16AB0CC2A21F56BF419CDAEABFE" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\th.pak" />
+            </Component>
+            <Component Id="cmpA988FF5C0621F3702A2A2F1E0D45A676" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil067683592F5906AFD00598D373051922" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\tr.pak" />
+            </Component>
+            <Component Id="cmp2BCB79B0A8879938997BBF118736BA48" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filAD12060E2C0E3AE213D69F10A4972142" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\uk.pak" />
+            </Component>
+            <Component Id="cmp036F9F1D91E89D212602095B4CCA68D3" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil2C6ABC9233E67791C54F621F42130F3F" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\vi.pak" />
+            </Component>
+            <Component Id="cmp69E0A6259F77A88F54F0A834DE7EAD5C" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="fil165E6D969AD604B5C477A1C825A5D905" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\zh-CN.pak" />
+            </Component>
+            <Component Id="cmp8D6B7371C0034094F11E6365D3CD3885" Directory="dir4C9E32A20BCE8A548CD160F3B11E4BDE" Guid="*">
+                <File Id="filD3F6BFB38B0141BBB76CC98FF9384069" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\zh-TW.pak" />
+            </Component>
+            <Component Id="cmp05A73EA7E628D567253C05B6EEBA977C" Directory="dirD8D873DB23CDC7E25831137BFE3063CC" Guid="*">
+                <File Id="fil8ABEC2FEA2CDE25410E22F65FC7E2B40" KeyPath="yes" Source="$(var.CSYT.TargetDir)\swiftshader\libEGL.dll" />
+            </Component>
+            <Component Id="cmp72856D429257FA5559E200A895C3D84D" Directory="dirD8D873DB23CDC7E25831137BFE3063CC" Guid="*">
+                <File Id="fil5FFA32F8E15AD2097E860879A61512B4" KeyPath="yes" Source="$(var.CSYT.TargetDir)\swiftshader\libGLESv2.dll" />
+            </Component>
+
+		</ComponentGroup>
+    
+	</Fragment>
+</Wix>
