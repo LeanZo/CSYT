@@ -26,14 +26,14 @@ Global
 		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Debug|x86.Build.0 = Debug|x86
 		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x64.ActiveCfg = Release|x64
 		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x64.Build.0 = Release|x64
-		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x86.ActiveCfg = Debug|x86
-		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x86.Build.0 = Debug|x86
+		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x86.ActiveCfg = Release|x86
+		{28C1DBA5-204F-4DBD-8374-B7FA6537D104}.Release|x86.Build.0 = Release|x86
 		{75270705-C572-41D8-A88E-1398BE06132C}.Debug|x64.ActiveCfg = Debug|x86
 		{75270705-C572-41D8-A88E-1398BE06132C}.Debug|x86.ActiveCfg = Debug|x86
 		{75270705-C572-41D8-A88E-1398BE06132C}.Debug|x86.Build.0 = Debug|x86
 		{75270705-C572-41D8-A88E-1398BE06132C}.Release|x64.ActiveCfg = Release|x86
-		{75270705-C572-41D8-A88E-1398BE06132C}.Release|x86.ActiveCfg = Debug|x86
-		{75270705-C572-41D8-A88E-1398BE06132C}.Release|x86.Build.0 = Debug|x86
+		{75270705-C572-41D8-A88E-1398BE06132C}.Release|x86.ActiveCfg = Release|x86
+		{75270705-C572-41D8-A88E-1398BE06132C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

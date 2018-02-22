@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>75270705-c572-41d8-a88e-1398be06132c</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>CSYT Setup</OutputName>
+    <OutputName>CSYT 2.0 Setup</OutputName>
     <OutputType>Package</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">

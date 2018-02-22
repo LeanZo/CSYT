@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using CefSharp;
 
 namespace CSYT
 {
@@ -9,26 +10,46 @@ namespace CSYT
     /// </summary>
     public partial class MainWindow : Window
     {
+        Point startPosition = new Point();
+        public double InitialWidth { get; } = 683.0;
+        public double InitialHeight { get; } = 384.0;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            DataContext = this;
+
             Title = VersionInfo.AppNameAndVersion;
-            
+
             WebBrowser.RequestHandler = new RequestHandler();
 
+            WebBrowser.LifeSpanHandler = new LifeSpanHandler(this);
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        // Prevents browser's right-click.
+        private void WebBrowser_RightClickOff(object sender, MouseButtonEventArgs e)
         {
-            CefSharp.Cef.Shutdown();
+            e.Handled = true;
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Window_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            startPosition = e.GetPosition(this);
         }
 
+        private void Window_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                Point endPosition = e.GetPosition(this);
+                Vector vector = endPosition - startPosition;
+                this.Left += vector.X;
+                this.Top += vector.Y;
+            }
+        }
+
+        // Shotcuts.
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             var window = sender as Window;
@@ -50,27 +71,39 @@ namespace CSYT
             if (window.WindowState == WindowState.Minimized) window.WindowState = WindowState.Normal;
         }
 
-        // Resize maintaining ratio
+        // Resize maintaining aspect ratio.
         private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var window = sender as Window;
 
-            int width = 10;
+            double relativeWidth = 10.0;
 
-            double ratio = 0.5777126099706745;
+            double ratio = InitialHeight / InitialWidth;
 
-            if (Keyboard.IsKeyDown(Key.LeftShift)) width = 20;
+            if (Keyboard.IsKeyDown(Key.LeftShift)) relativeWidth = 20.0;
 
             if (e.Delta > 0)
             {
-                window.Width += width;
+                window.Width += relativeWidth;
                 window.Height = ratio * window.Width;
+
+                Grid.Width += relativeWidth;
+                Grid.Height = ratio * window.Width;
+
             }
-            else if (window.Width > 20)
+            else if (window.Width > 200)
             {
-                window.Width -= width;
+                window.Width -= relativeWidth;
                 window.Height = ratio * window.Width;
+
+                Grid.Width -= relativeWidth;
+                Grid.Height = ratio * window.Width;
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CefSharp.Cef.Shutdown();
         }
     }
 }

@@ -7,68 +7,10 @@
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
-        Title="CSYT" Height="394" Width="682" MinHeight="78" MinWidth="136" Topmost="True" Closing="Window_Closing" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize" >
-    
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="Foreground" Value="Transparent"/>
-            <Setter Property="shell:WindowChrome.WindowChrome">
-                <Setter.Value>
-                    <shell:WindowChrome CaptionHeight="0"
-                                        CornerRadius="20"
-                                        GlassFrameThickness="0"
-                                        NonClientFrameEdges="None"
-                                        ResizeBorderThickness="0"
-                                        />
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Window}">
-                        <Grid>
-                            <Border   Background="Black" BorderBrush="Transparent" BorderThickness="4,4,6,6" 
-                             CornerRadius="12">
-                                <Border.Effect>
-                                    <BlurEffect  KernelType="Gaussian" Radius="12" RenderingBias="Quality" />
-                                </Border.Effect>
-                            </Border>
-                            <Border BorderBrush="Transparent" BorderThickness="2" 
-                                CornerRadius="12" ClipToBounds="True">
-                            </Border>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="0"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" 
-                                              Foreground="Transparent"
-                                              Grid.Row="0"
-                                              HorizontalAlignment="Center" 
-                                              VerticalAlignment="Bottom"
-                                              FontWeight="Bold"
-                                              FontSize="16"
-                                         />
-                                <Button Name="CloseButton" 
-                                    Width="20" Height="20"   
-                                    Grid.Row="0"
-                                    HorizontalAlignment="Right"
-                                    BorderThickness="0"
-                                    Margin="0,12,12,0"
-                                    Visibility="Hidden"
-                                    Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CloseCommand}"
-                                    />
-                                <ContentPresenter Grid.Row="1" Margin="12"/>
-                            </Grid>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Style>
+        Title="CSYT" AllowsTransparency="True" Background="Transparent" DataContext="{RelativeSource Self}" Width="683" Height="384" Topmost="True" Closing="Window_Closing" WindowStyle="None" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize" PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" PreviewMouseMove="Window_PreviewMouseMove" >
 
     <Grid x:Name="Grid">
         <shell:Image x:Name="IMG_BG" Source="shortcuts.png" />
-        <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Grid.Row="0" Margin="0,0,0,0"/>
+        <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Margin="0,0,0,0" PreviewMouseRightButtonDown="WebBrowser_RightClickOff" PreviewMouseRightButtonUp="WebBrowser_RightClickOff" />
     </Grid>
 </Window>

@@ -21,18 +21,25 @@ namespace CSYT
             Owner = window;
         }
 
-        // Extracts video's and playlist's IDs, creates a new url using user settings and Load it.
         private void Btn_OK_Click(object sender, RoutedEventArgs e)
         {
             if (window.IMG_BG.IsVisible) window.IMG_BG.Visibility = Visibility.Hidden;
 
-            string videoId = Regex.Match(TextBox_Url.Text, @"watch\?v=([^\/&]+)").Groups[1].Value;
-            string playListId = Regex.Match(TextBox_Url.Text, @"(&list=[^\/&]+)").Groups[1].Value;
+            UrlLoad(TextBox_Url.Text, window);   
+
+            this.Close();
+        }
+
+        // Extracts video's and playlist's IDs, creates a new url using user settings and Load it.
+        public static void UrlLoad(string url, MainWindow window)
+        {
+            string videoId = Regex.Match(url, @"watch\?v=([^\/&]+)").Groups[1].Value;
+            string playListId = Regex.Match(url, @"(&list=[^\/&]+)").Groups[1].Value;
 
             string userParams = String.Format("autoplay={0}&showinfo={1}&controls={2}", Properties.Settings.Default.C_Autoplay, Properties.Settings.Default.C_VideoInfo, Properties.Settings.Default.C_VideoControls);
 
-            window.WebBrowser.Load(String.Format(@"https://www.youtube.com/embed/{0}?iv_load_policy=3&rel=0&{1}&{2}", videoId, userParams, playListId));
-            this.Close();
+            if (videoId != string.Empty)
+                window.WebBrowser.Load(String.Format(@"https://www.youtube.com/embed/{0}?iv_load_policy=3&fs=0&rel=1&{1}&{2}", videoId, userParams, playListId));
         }
 
         // Checks if TextBlock_Url.Text is a valid Youtube Url
