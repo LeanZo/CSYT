@@ -176,6 +176,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>call "%25wix%25\bin\heat.exe" dir "$(SolutionDir)CSYT\bin\x86\Release\ " -var "var.CSYT.TargetDir" -ag -srd -dr INSTALLFOLDER -cg ProductComponents -template fragment -out "$(ProjectDir)Output.wxs" -v -t "$(ProjectDir)Filter.xslt"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
