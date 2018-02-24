@@ -20,11 +20,15 @@ namespace CSYT
 
             DataContext = this;
 
-            Title = VersionInfo.AppNameAndVersion;
+            TaskBar.ToolTipText = Title = VersionInfo.AppNameAndVersion;
 
             WebBrowser.RequestHandler = new RequestHandler();
 
             WebBrowser.LifeSpanHandler = new LifeSpanHandler(this);
+
+            TaskBarChangeUrl.Click += (sender, e) => new ChangeUrl(this).ShowDialog();
+            TaskBarSettings.Click += (sender, e) => new Settings(this).ShowDialog();
+            TaskBarExit.Click += (sender, e) => this.Close();
         }
 
         // Prevents browser's right-click.
@@ -56,9 +60,6 @@ namespace CSYT
 
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.N))
                 new ChangeUrl(this).ShowDialog();
-
-            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.Z) && window.WindowState == WindowState.Maximized)
-                window.WindowState = WindowState.Normal;
 
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.S))
                 new Settings(this).ShowDialog();
