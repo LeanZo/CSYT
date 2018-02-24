@@ -50,12 +50,8 @@
             <Component Id="cmpE22DA677162A8EC71F9715EF76272D57" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil386E4B08ECCD30ABCD6DB37ED139B277" KeyPath="yes" Source="$(var.CSYT.TargetDir)\chrome_elf.dll" />
             </Component>
-            <Component Id="cmpDBC7495734D4AC6A71C70314470BEE14" Directory="INSTALLFOLDER" Guid="*">
-                <File Id="filF76D133378BE988C2CBD90FF74376157" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CSYT.exe" />
-            </Component>
-            <Component Id="cmpB6D72246277189B30517FD98222AF155" Directory="INSTALLFOLDER" Guid="*">
-                <File Id="fil40F5DF92CBF66CF29A0A6915EBE3AE98" KeyPath="yes" Source="$(var.CSYT.TargetDir)\CSYT.exe.config" />
-            </Component>
+            
+            
             
             <Component Id="cmp41DC9741013CA4AD62A4A5FF421F08BC" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil84B847A9F8DABE6B95AF875695C9E6D1" KeyPath="yes" Source="$(var.CSYT.TargetDir)\d3dcompiler_47.dll" />
@@ -63,6 +59,11 @@
             <Component Id="cmp953E935EFD854363EA5BE90BEB265A15" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil1663242DBF722C40CBAF8839CC52B5ED" KeyPath="yes" Source="$(var.CSYT.TargetDir)\devtools_resources.pak" />
             </Component>
+            <Component Id="cmpBE3C1D05C7C90455322C9F819A57A07A" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE7C602A91344AD969255F20A2CA7411A" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Hardcodet.Wpf.TaskbarNotification.dll" />
+            </Component>
+            
+            
             <Component Id="cmpBDBA16CBEE531189F4ADEB44F36FA9CA" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil22B9AE685C747A265E9A4BC34E90558B" KeyPath="yes" Source="$(var.CSYT.TargetDir)\icudtl.dat" />
             </Component>

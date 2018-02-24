@@ -61,7 +61,13 @@
   <PropertyGroup>
     <ApplicationIcon>video.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -168,5 +174,8 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>call "%25wix%25\bin\heat.exe" dir "$(SolutionDir)CSYT\bin\x86\Release\ " -var "var.CSYT.TargetDir" -ag -srd -dr INSTALLFOLDER -cg ProductComponents -template fragment -out "$(ProjectDir)Output.wxs" -v -t "$(ProjectDir)Filter.xslt"</PostBuildEvent>
   </PropertyGroup>
 </Project>

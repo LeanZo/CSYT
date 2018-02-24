@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSYT"
         mc:Ignorable="d"
-        Title="Settings" Height="192.783" Width="311.34" ResizeMode="NoResize">
+        Title="Settings" Height="192.783" Width="311.34" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <GroupBox Header="Settings" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="274">
             <Grid>
