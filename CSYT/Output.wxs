@@ -56,6 +56,9 @@
             <Component Id="cmp41DC9741013CA4AD62A4A5FF421F08BC" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil84B847A9F8DABE6B95AF875695C9E6D1" KeyPath="yes" Source="$(var.CSYT.TargetDir)\d3dcompiler_47.dll" />
             </Component>
+            <Component Id="cmp606EB7ABF006368C60735078DEFF8B91" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filDF37FFDBAF794FB705610E0A82AF4AEA" KeyPath="yes" Source="$(var.CSYT.TargetDir)\debug.log" />
+            </Component>
             <Component Id="cmp953E935EFD854363EA5BE90BEB265A15" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil1663242DBF722C40CBAF8839CC52B5ED" KeyPath="yes" Source="$(var.CSYT.TargetDir)\devtools_resources.pak" />
             </Component>

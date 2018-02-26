@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Post-Build Commands for generate file list:-->
 <!--call "%wix%\bin\heat.exe" dir "$(SolutionDir)CSYT\bin\x86\Release\ " -var "var.CSYT.TargetDir" -ag -srd -dr INSTALLFOLDER -cg ProductComponents -template fragment -out "$(ProjectDir)Output.wxs" -v -t "$(ProjectDir)Filter.xslt"-->
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"><?define CSYT_TargetDir=$(var.CSYT.TargetDir)?>
-	<Product Id="*" Name="CSYT 2.1" Language="1033" Version="2.1" Manufacturer="CSYT" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  
+  <?define CSYT_TargetDir=$(var.CSYT.TargetDir)?>
+  <?define Version = "2.1"?>
+  <?if $(var.Platform) = x64 ?>
+  <?define ProductName = "CSYT $(var.Version) (64 bit)" ?>
+  <?define Win64 = "yes" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?else ?>
+  <?define ProductName = "CSYT $(var.Version) (32 bit)" ?>
+  <?define Win64 = "no" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?endif ?>
+  
+	<Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.Version)" Manufacturer="CSYT" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
 		<Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
 
     <Icon Id="video.ico" SourceFile="$(var.ProjectDir)video.ico"/>
@@ -32,7 +45,7 @@
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
+			<Directory Id="$(var.PlatformProgramFilesFolder)">
 				<Directory Id="INSTALLFOLDER" Name="CSYT">
         </Directory>
 			</Directory>
