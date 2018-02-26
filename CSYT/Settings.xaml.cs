@@ -7,9 +7,9 @@ namespace CSYT
     /// </summary>
     public partial class Settings : Window
     {
-        Window window;
+        MainWindow window;
 
-        public Settings(Window window)
+        public Settings(MainWindow window)
         {
             InitializeComponent();
 
@@ -22,6 +22,15 @@ namespace CSYT
             Chk_VideoControls.IsChecked = Properties.Settings.Default.C_VideoControls == 1 ? true : false;
 
             Chk_VideoInfo.IsChecked = Properties.Settings.Default.C_VideoInfo == 1 ? true : false;
+
+            SliderOpacity.Value = Properties.Settings.Default.C_Opacity;
+
+            SliderOpacity.ValueChanged += (sender, e) =>
+            {
+                window.WebBrowser.Opacity = e.NewValue;
+                window.IMG_BG.Opacity = e.NewValue;
+                Properties.Settings.Default.C_Opacity = SliderOpacity.Value;
+            };
         }
 
         // Saves settings

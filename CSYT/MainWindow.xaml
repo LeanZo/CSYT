@@ -23,6 +23,6 @@
         </tb:TaskbarIcon>
         
         <shell:Image x:Name="IMG_BG" Source="shortcuts.png" />
-        <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Margin="0,0,0,0" PreviewMouseRightButtonDown="WebBrowser_RightClickOff" PreviewMouseRightButtonUp="WebBrowser_RightClickOff" />
+        <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Opacity="1.0" Background="Red"  Margin="0,0,0,0" PreviewMouseRightButtonDown="WebBrowser_RightClickOff" PreviewMouseRightButtonUp="WebBrowser_RightClickOff" />
     </Grid>
 </Window>

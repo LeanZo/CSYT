@@ -26,6 +26,10 @@ namespace CSYT
 
             WebBrowser.LifeSpanHandler = new LifeSpanHandler(this);
 
+            WebBrowser.Opacity = Properties.Settings.Default.C_Opacity;
+
+            IMG_BG.Opacity = Properties.Settings.Default.C_Opacity;
+
             TaskBarChangeUrl.Click += (sender, e) => new ChangeUrl(this).ShowDialog();
             TaskBarSettings.Click += (sender, e) => new Settings(this).ShowDialog();
             TaskBarExit.Click += (sender, e) => this.Close();

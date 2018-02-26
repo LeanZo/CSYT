@@ -2,6 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
+            <Directory Id="dirCA02E4A7CC6C21D952C5059DC56408F4" Name="GPUCache" />
             <Directory Id="dir07100F2E598E14B511BAF734827AE4AB" Name="locales" />
             <Directory Id="dir248D31DDF01545F6DE1ADFFB1B0E0D98" Name="swiftshader" />
         </DirectoryRef>
@@ -90,6 +91,21 @@
             </Component>
             <Component Id="cmp0C049D3465D62CFB71A1749269255C8F" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="filEEDDB838AB531DA8517487CA67D95B8F" KeyPath="yes" Source="$(var.CSYT.TargetDir)\widevinecdmadapter.dll" />
+            </Component>
+            <Component Id="cmpD98D5A90C5CF76F1CF3ABB6B654DE9BB" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
+                <File Id="fil72C8998E84524852D93DAE53BDD96DCC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\data_0" />
+            </Component>
+            <Component Id="cmp5F4053DB10BABA21190A2AC13E40B62F" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
+                <File Id="fil7BFFC2B6D94359068CFF6FB407C977ED" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\data_1" />
+            </Component>
+            <Component Id="cmp7999F54A3D4545C6540F010CD9BFF92F" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
+                <File Id="filBA3BD400D0DFB7304CEB577521B97A35" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\data_2" />
+            </Component>
+            <Component Id="cmp7FB19E27B662424B82391A756DD9965E" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
+                <File Id="fil982A836EC9CB30E83EE561E12828CD57" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\data_3" />
+            </Component>
+            <Component Id="cmp3B66DCEB0789C8C518943D089A4199DD" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
+                <File Id="fil28E93CE868CB9B868ADCBF0F50DDA1ED" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\index" />
             </Component>
             <Component Id="cmp93B53FD801CE3270DE5D9AF01811CD8F" Directory="dir07100F2E598E14B511BAF734827AE4AB" Guid="*">
                 <File Id="fil32C51E9E820B1FEE0FB7D2E6E3650736" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\am.pak" />
