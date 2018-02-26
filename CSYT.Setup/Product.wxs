@@ -4,7 +4,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   
   <?define CSYT_TargetDir=$(var.CSYT.TargetDir)?>
-  <?define Version = "2.1"?>
+  <?define Version = "2.2"?>
   <?if $(var.Platform) = x64 ?>
   <?define ProductName = "CSYT $(var.Version) (64 bit)" ?>
   <?define Win64 = "yes" ?>
