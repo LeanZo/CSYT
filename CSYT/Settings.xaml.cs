@@ -17,11 +17,11 @@ namespace CSYT
 
             this.window = window;
 
-            Chk_Autoplay.IsChecked = Properties.Settings.Default.C_Autoplay == 1 ? true : false;
+            Chk_Autoplay.IsChecked = Properties.Settings.Default.C_Autoplay == 1;
 
-            Chk_VideoControls.IsChecked = Properties.Settings.Default.C_VideoControls == 1 ? true : false;
+            Chk_VideoControls.IsChecked = Properties.Settings.Default.C_VideoControls == 1;
 
-            Chk_VideoInfo.IsChecked = Properties.Settings.Default.C_VideoInfo == 1 ? true : false;
+            Chk_VideoInfo.IsChecked = Properties.Settings.Default.C_VideoInfo == 1;
 
             SliderOpacity.Value = Properties.Settings.Default.C_Opacity;
 

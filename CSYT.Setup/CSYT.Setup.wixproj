@@ -34,9 +34,11 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\CSYT\icon.ico">
+      <Link>icon.ico</Link>
+    </Content>
     <Content Include="CSYT.Setup.wax" />
     <Content Include="gpl-3.0.rtf" />
-    <Content Include="video.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSYT\CSYT.csproj">

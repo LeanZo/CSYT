@@ -12,7 +12,7 @@
 
     <Grid x:Name="Grid">
         
-        <tb:TaskbarIcon x:Name="TaskBar" IconSource="video.ico" ToolTipText="CSYT" MenuActivation="All" >
+        <tb:TaskbarIcon x:Name="TaskBar" IconSource="icon.ico" ToolTipText="CSYT" MenuActivation="All" >
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="TaskBarChangeUrl" Header="_Change Video..."></MenuItem>

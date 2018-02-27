@@ -18,8 +18,8 @@
 	<Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.Version)" Manufacturer="CSYT" UpgradeCode="4309cd9f-fd60-4de9-b5bc-9b1b481a91c8">
 		<Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
 
-    <Icon Id="video.ico" SourceFile="$(var.ProjectDir)video.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="video.ico" />
+    <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)icon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
     
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED"/>
     
