@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using CefSharp;
 
 namespace CSYT
 {
@@ -10,15 +9,13 @@ namespace CSYT
     /// </summary>
     public partial class MainWindow : Window
     {
-        Point startPosition = new Point();
-        public double InitialWidth { get; } = 683.0;
-        public double InitialHeight { get; } = 384.0;
+        // InitialWidth / InitialHeight
+        private const double RATIO = 384.0 / 683.0;
+        Point startPosition;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            DataContext = this;
 
             TaskBar.ToolTipText = Title = VersionInfo.AppNameAndVersion;
 
@@ -26,9 +23,9 @@ namespace CSYT
 
             WebBrowser.LifeSpanHandler = new LifeSpanHandler(this);
 
-            WebBrowser.Opacity = Properties.Settings.Default.C_Opacity;
+            WebBrowser.Opacity = Properties.Settings.Default.Opacity;
 
-            IMG_BG.Opacity = Properties.Settings.Default.C_Opacity;
+            ImgBg.Opacity = Properties.Settings.Default.Opacity;
 
             TaskBarChangeUrl.Click += (sender, e) => new ChangeUrl(this).ShowDialog();
             TaskBarSettings.Click += (sender, e) => new Settings(this).ShowDialog();
@@ -60,8 +57,6 @@ namespace CSYT
         // Shotcuts.
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            var window = sender as Window;
-
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.N))
                 new ChangeUrl(this).ShowDialog();
 
@@ -83,26 +78,24 @@ namespace CSYT
 
             double relativeWidth = 10.0;
 
-            double ratio = InitialHeight / InitialWidth;
-
             if (Keyboard.IsKeyDown(Key.LeftShift)) relativeWidth = 20.0;
 
             if (e.Delta > 0)
             {
                 window.Width += relativeWidth;
-                window.Height = ratio * window.Width;
+                window.Height = RATIO * window.Width;
 
                 Grid.Width += relativeWidth;
-                Grid.Height = ratio * window.Width;
+                Grid.Height = RATIO * window.Width;
 
             }
             else if (window.Width > 200)
             {
                 window.Width -= relativeWidth;
-                window.Height = ratio * window.Width;
+                window.Height = RATIO * window.Width;
 
                 Grid.Width -= relativeWidth;
-                Grid.Height = ratio * window.Width;
+                Grid.Height = RATIO * window.Width;
             }
         }
 

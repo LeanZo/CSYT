@@ -8,7 +8,7 @@
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="CSYT" AllowsTransparency="True" Background="Transparent" DataContext="{RelativeSource Self}" Width="683" Height="384" Topmost="True" Closing="Window_Closing" WindowStyle="None" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize" PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" PreviewMouseMove="Window_PreviewMouseMove" ShowInTaskbar="False" >
+        Title="CSYT" AllowsTransparency="True" Background="Transparent" Width="683" Height="384" Topmost="True" Closing="Window_Closing" WindowStyle="None" KeyDown="Window_KeyDown" StateChanged="Window_StateChanged" MouseWheel="Window_MouseWheel" ResizeMode="NoResize" PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" PreviewMouseMove="Window_PreviewMouseMove" ShowInTaskbar="False" >
 
     <Grid x:Name="Grid">
         
@@ -22,7 +22,7 @@
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
         
-        <shell:Image x:Name="IMG_BG" Source="shortcuts.png" />
+        <shell:Image x:Name="ImgBg" Source="shortcuts.png" />
         <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Opacity="1.0" Background="Red"  Margin="0,0,0,0" PreviewMouseRightButtonDown="WebBrowser_RightClickOff" PreviewMouseRightButtonUp="WebBrowser_RightClickOff" />
     </Grid>
 </Window>

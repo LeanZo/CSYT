@@ -9,14 +9,14 @@
     <Grid>
         <GroupBox Header="Settings" HorizontalAlignment="Left" Height="145" Margin="10,10,0,0" VerticalAlignment="Top" Width="274">
             <Grid>
-                <CheckBox x:Name="Chk_Autoplay" Content="Enable Autoplay" HorizontalAlignment="Left" Margin="4,12,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="Chk_VideoInfo" Content="Show Video Info" HorizontalAlignment="Left" Margin="4,32,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="Chk_VideoControls" Content="Enable Video Controls" HorizontalAlignment="Left" Margin="4,52,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ChkAutoplay" Content="Enable Autoplay" HorizontalAlignment="Left" Margin="4,12,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ChkVideoInfo" Content="Show Video Info" HorizontalAlignment="Left" Margin="4,32,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ChkVideoControls" Content="Enable Video Controls" HorizontalAlignment="Left" Margin="4,52,0,0" VerticalAlignment="Top"/>
                 <Label Content="Opacity:" HorizontalAlignment="Left" Margin="4,72,0,0" VerticalAlignment="Top"/>
                 <Slider x:Name="SliderOpacity" Margin="0,98,0,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="262" Maximum="1" Minimum="0.1" SmallChange="0" />
             </Grid>
         </GroupBox>
-        <Button x:Name="Btn_OK" Content="OK" HorizontalAlignment="Left" Margin="129,160,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Btn_OK_Click"/>
+        <Button x:Name="BtnOK" Content="OK" HorizontalAlignment="Left" Margin="129,160,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="BtnOK_Click"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="209,160,0,0" VerticalAlignment="Top" Width="75" IsCancel="True"/>
     </Grid>
 </Window>

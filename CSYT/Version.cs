@@ -4,17 +4,17 @@ using System.Reflection;
 
 namespace CSYT
 {
-    static class VersionInfo
+    internal static class VersionInfo
     {
-        public static bool IsBeta { get; } = false;
+        internal static bool IsBeta { get; } = false;
 
 
-        public static string AppName { get; } = Assembly.GetEntryAssembly()
+        internal static string AppName { get; } = Assembly.GetEntryAssembly()
                 .GetCustomAttributes(typeof(AssemblyProductAttribute))
                 .OfType<AssemblyProductAttribute>()
                 .FirstOrDefault().Product;
 
-        public static string AppVersion
+        internal static string AppVersion
         {
             get
             {
@@ -33,6 +33,6 @@ namespace CSYT
             }
         }
 
-        public static string AppNameAndVersion { get; } = AppName + " " + AppVersion;
+        internal static string AppNameAndVersion { get; } = AppName + " " + AppVersion;
     }
 }

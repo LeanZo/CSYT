@@ -26,48 +26,48 @@ namespace CSYT.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int C_Autoplay {
+        public int Autoplay {
             get {
-                return ((int)(this["C_Autoplay"]));
+                return ((int)(this["Autoplay"]));
             }
             set {
-                this["C_Autoplay"] = value;
+                this["Autoplay"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int C_VideoInfo {
+        public int VideoInfo {
             get {
-                return ((int)(this["C_VideoInfo"]));
+                return ((int)(this["VideoInfo"]));
             }
             set {
-                this["C_VideoInfo"] = value;
+                this["VideoInfo"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int C_VideoControls {
+        public int VideoControls {
             get {
-                return ((int)(this["C_VideoControls"]));
+                return ((int)(this["VideoControls"]));
             }
             set {
-                this["C_VideoControls"] = value;
+                this["VideoControls"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public double C_Opacity {
+        public double Opacity {
             get {
-                return ((double)(this["C_Opacity"]));
+                return ((double)(this["Opacity"]));
             }
             set {
-                this["C_Opacity"] = value;
+                this["Opacity"] = value;
             }
         }
     }

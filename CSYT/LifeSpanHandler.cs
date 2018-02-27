@@ -11,7 +11,7 @@ namespace CSYT
     // If true, the video loads.
     class LifeSpanHandler : ILifeSpanHandler
     {
-        MainWindow window;
+        readonly MainWindow window;
 
         public LifeSpanHandler(MainWindow window)
         {

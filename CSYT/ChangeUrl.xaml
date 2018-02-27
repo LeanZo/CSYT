@@ -8,8 +8,8 @@
         Title="Change Video" Height="78.896" Width="393.214" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
 
     <Grid FocusManager.FocusedElement="{Binding ElementName=TextBox_Url}">
-        <TextBlock x:Name="TextBlock_Url" Margin="15,12" Foreground="Gray" Text="Insert Video Url..."/>
-        <TextBox x:Name="TextBox_Url" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="278" TextChanged="TextBox_Url_TextChanged"/>
-        <Button x:Name="Btn_OK" Content="OK" HorizontalAlignment="Left" Margin="293,12,0,0" VerticalAlignment="Top" Width="75" Click="Btn_OK_Click" IsDefault="True" IsEnabled="False"/>
+        <TextBlock x:Name="TextBlockUrl" Margin="15,12" Foreground="Gray" Text="Insert Video Url..."/>
+        <TextBox x:Name="TextBoxUrl" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="278" TextChanged="TextBoxUrl_TextChanged"/>
+        <Button x:Name="BtnOK" Content="OK" HorizontalAlignment="Left" Margin="293,12,0,0" VerticalAlignment="Top" Width="75" Click="BtnOK_Click" IsDefault="True" IsEnabled="False"/>
     </Grid>
 </Window>

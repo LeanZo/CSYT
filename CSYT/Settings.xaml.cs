@@ -7,40 +7,36 @@ namespace CSYT
     /// </summary>
     public partial class Settings : Window
     {
-        MainWindow window;
-
         public Settings(MainWindow window)
         {
             InitializeComponent();
 
             Owner = window;
 
-            this.window = window;
+            ChkAutoplay.IsChecked = Properties.Settings.Default.Autoplay == 1;
 
-            Chk_Autoplay.IsChecked = Properties.Settings.Default.C_Autoplay == 1;
+            ChkVideoControls.IsChecked = Properties.Settings.Default.VideoControls == 1;
 
-            Chk_VideoControls.IsChecked = Properties.Settings.Default.C_VideoControls == 1;
+            ChkVideoInfo.IsChecked = Properties.Settings.Default.VideoInfo == 1;
 
-            Chk_VideoInfo.IsChecked = Properties.Settings.Default.C_VideoInfo == 1;
-
-            SliderOpacity.Value = Properties.Settings.Default.C_Opacity;
+            SliderOpacity.Value = Properties.Settings.Default.Opacity;
 
             SliderOpacity.ValueChanged += (sender, e) =>
             {
                 window.WebBrowser.Opacity = e.NewValue;
-                window.IMG_BG.Opacity = e.NewValue;
-                Properties.Settings.Default.C_Opacity = SliderOpacity.Value;
+                window.ImgBg.Opacity = e.NewValue;
+                Properties.Settings.Default.Opacity = SliderOpacity.Value;
             };
         }
 
         // Saves settings
-        private void Btn_OK_Click(object sender, RoutedEventArgs e)
+        private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.C_Autoplay = Chk_Autoplay.IsChecked.Value ? 1 : 0;
+            Properties.Settings.Default.Autoplay = ChkAutoplay.IsChecked.Value ? 1 : 0;
 
-            Properties.Settings.Default.C_VideoControls = Chk_VideoControls.IsChecked.Value ? 1 : 0;
+            Properties.Settings.Default.VideoControls = ChkVideoControls.IsChecked.Value ? 1 : 0;
 
-            Properties.Settings.Default.C_VideoInfo = Chk_VideoInfo.IsChecked.Value ? 1 : 0;
+            Properties.Settings.Default.VideoInfo = ChkVideoInfo.IsChecked.Value ? 1 : 0;
 
             Properties.Settings.Default.Save();
 
