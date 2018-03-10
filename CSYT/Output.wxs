@@ -115,9 +115,6 @@
             <Component Id="cmp936EFEE6D78EB7202B749AB4C5D0BC38" Directory="dir4A939956C3CBABAE8772A809E8B414F8" Guid="*">
                 <File Id="filB5925D7B067A7161D298F109280C70FC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Languages\English.json" />
             </Component>
-            <Component Id="cmp1C7C8623D410DF73C5F412568909C0E8" Directory="dir4A939956C3CBABAE8772A809E8B414F8" Guid="*">
-                <File Id="filE48E7838E7BF37932C5FD0B978DAAAEA" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Languages\Portugues.json" />
-            </Component>
             <Component Id="cmp93B53FD801CE3270DE5D9AF01811CD8F" Directory="dir07100F2E598E14B511BAF734827AE4AB" Guid="*">
                 <File Id="fil32C51E9E820B1FEE0FB7D2E6E3650736" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\am.pak" />
             </Component>

@@ -13,7 +13,7 @@
                 <CheckBox x:Name="ChkVideoInfo" Content="Show Video Info" HorizontalAlignment="Left" Margin="4,74,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="ChkVideoControls" Content="Enable Video Controls" HorizontalAlignment="Left" Margin="4,94,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="LblOpacity" Content="Opacity:" HorizontalAlignment="Left" Margin="4,114,0,0" VerticalAlignment="Top"/>
-                <Slider x:Name="SliderOpacity" Margin="0,140,0,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="262" Maximum="1" Minimum="0.1" SmallChange="0" />
+                <Slider x:Name="SliderOpacity" Margin="0,140,0,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="262" Maximum="1" Minimum="0.1" LargeChange="0.2" />
                 <Label x:Name="LblLanguage"  Content="Language:" HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="CBoxLanguage" HorizontalAlignment="Left" Margin="4,26,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
