@@ -1,0 +1,28 @@
+﻿/*
+ * Language: English
+ * Created: 2018/03/09
+ * Author(s): Lucas Lean
+ * Website/Contact: www.github.com/LeanZo
+ */
+{
+  // System Tray (The underscore character '_' works as access key)
+  "SystemTray_ChangeVideo": "_Change Video...",
+  "SystemTray_Settings": "_Settings...",
+  "SystemTray_Exit": "Exit",
+
+  // Change Video
+  "ChangeVideo_ChangeVideo": "Change Video",
+  "ChangeVideo_InsertVideoUrl": "Insert Video Url...",
+  "ChangeVideo_Loop": "Loop",
+  "ChangeVideo_OK": "OK",
+
+  // Settings
+  "Settings_Settings": "Settings",
+  "Settings_Language": "Language:", 
+  "Settings_EnableAutoplay": "Enable Autoplay",
+  "Settings_ShowVideoInfo": "Show Video Info",
+  "Settings_EnableVideoControls": "Enable Video Controls",
+  "Settings_Opacity": "Opacity:",
+  "Settings_OK": "OK",
+  "Settings_Cancel": "Cancel" 
+}

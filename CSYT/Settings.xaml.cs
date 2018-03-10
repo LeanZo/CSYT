@@ -13,6 +13,13 @@ namespace CSYT
 
             Owner = window;
 
+            foreach (string file in Languages.LanguageFilesList)
+            {
+                CBoxLanguage.Items.Add(file);
+            }
+
+            CBoxLanguage.SelectedItem = Properties.Settings.Default.Language;
+
             ChkAutoplay.IsChecked = Properties.Settings.Default.Autoplay == 1;
 
             ChkVideoControls.IsChecked = Properties.Settings.Default.VideoControls == 1;
@@ -27,11 +34,24 @@ namespace CSYT
                 window.ImgBg.Opacity = e.NewValue;
                 Properties.Settings.Default.Opacity = SliderOpacity.Value;
             };
+
+            // Translation.
+            Title = Languages.Get("Settings_Settings");
+            GBoxSettings.Header = Languages.Get("Settings_Settings");
+            LblLanguage.Content = Languages.Get("Settings_Language");
+            ChkAutoplay.Content = Languages.Get("Settings_EnableAutoplay");
+            ChkVideoInfo.Content = Languages.Get("Settings_ShowVideoInfo");
+            ChkVideoControls.Content = Languages.Get("Settings_EnableVideoControls");
+            LblOpacity.Content = Languages.Get("Settings_Opacity");
+            BtnOk.Content = Languages.Get("Settings_OK");
+            BtnCancel.Content = Languages.Get("Settings_Cancel");
         }
 
         // Saves settings
-        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.Language = CBoxLanguage.SelectedItem.ToString();
+
             Properties.Settings.Default.Autoplay = ChkAutoplay.IsChecked.Value ? 1 : 0;
 
             Properties.Settings.Default.VideoControls = ChkVideoControls.IsChecked.Value ? 1 : 0;

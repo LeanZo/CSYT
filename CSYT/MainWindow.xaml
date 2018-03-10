@@ -22,7 +22,7 @@
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
         
-        <shell:Image x:Name="ImgBg" Source="shortcuts.png" />
+        <shell:Image x:Name="ImgBg" Visibility="Visible"/>
         <cefSharp:ChromiumWebBrowser x:Name="WebBrowser" Opacity="1.0" Background="Red"  Margin="0,0,0,0" PreviewMouseRightButtonDown="WebBrowser_RightClickOff" PreviewMouseRightButtonUp="WebBrowser_RightClickOff" />
     </Grid>
 </Window>

@@ -21,9 +21,15 @@ namespace CSYT
             this.window = window;
 
             Owner = window;
+
+            // Translation.
+            Title = Languages.Get("ChangeVideo_ChangeVideo");
+            TextBlockUrl.Text = Languages.Get("ChangeVideo_InsertVideoUrl");
+            ChkLoop.Content = Languages.Get("ChangeVideo_Loop");
+            BtnOk.Content = Languages.Get("ChangeVideo_OK");
         }
 
-        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
             if (window.ImgBg.IsVisible) window.ImgBg.Visibility = Visibility.Hidden;
 
@@ -74,7 +80,7 @@ namespace CSYT
         {
             TextBlockUrl.Text = TextBoxUrl.Text != string.Empty ? string.Empty : "Insert Video Url...";
 
-            BtnOK.IsEnabled = Regex.IsMatch(TextBoxUrl.Text, @"youtube.com/.*?watch\?v=([^\/&]+)");
+            BtnOk.IsEnabled = Regex.IsMatch(TextBoxUrl.Text, @"youtube.com/.*?watch\?v=([^\/&]+)");
         }
     }
 }

@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSYT"
         mc:Ignorable="d"
-        Title="Change Video" Height="95.896" Width="393.214" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        Title="Change Video" Height="100.896" Width="393.214" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
 
     <Grid FocusManager.FocusedElement="{Binding ElementName=TextBoxUrl}">
         <TextBlock x:Name="TextBlockUrl" Margin="15,12" Foreground="Gray" Text="Insert Video Url..."/>
         <TextBox x:Name="TextBoxUrl" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="278" TextChanged="TextBoxUrl_TextChanged"/>
-        <Button x:Name="BtnOK" Content="OK" HorizontalAlignment="Left" Margin="293,12,0,0" VerticalAlignment="Top" Width="75" Click="BtnOK_Click" IsDefault="True" IsEnabled="False"/>
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Left" Margin="293,12,0,0" VerticalAlignment="Top" Width="75" Click="BtnOk_Click" IsDefault="True" IsEnabled="False"/>
         <CheckBox x:Name="ChkLoop" Content="Loop" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

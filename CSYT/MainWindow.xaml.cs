@@ -25,11 +25,17 @@ namespace CSYT
 
             WebBrowser.Opacity = Properties.Settings.Default.Opacity;
 
+            ImgBg.Source = Languages.ShortcutsImg;
             ImgBg.Opacity = Properties.Settings.Default.Opacity;
 
             TaskBarChangeUrl.Click += (sender, e) => new ChangeUrl(this).ShowDialog();
             TaskBarSettings.Click += (sender, e) => new Settings(this).ShowDialog();
             TaskBarExit.Click += (sender, e) => this.Close();
+
+            // Translation.
+            TaskBarChangeUrl.Header = Languages.Get("SystemTray_ChangeVideo");
+            TaskBarSettings.Header = Languages.Get("SystemTray_Settings");
+            TaskBarExit.Header = Languages.Get("SystemTray_Exit");
         }
 
         // Prevents browser's right-click.

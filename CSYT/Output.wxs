@@ -3,6 +3,7 @@
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
             <Directory Id="dirCA02E4A7CC6C21D952C5059DC56408F4" Name="GPUCache" />
+            <Directory Id="dir4A939956C3CBABAE8772A809E8B414F8" Name="Languages" />
             <Directory Id="dir07100F2E598E14B511BAF734827AE4AB" Name="locales" />
             <Directory Id="dir248D31DDF01545F6DE1ADFFB1B0E0D98" Name="swiftshader" />
         </DirectoryRef>
@@ -83,6 +84,10 @@
             <Component Id="cmpD2494A4F9168D06F172F90837CA4F9FB" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="filDE471C18BBAAC9BEAC80121FDB8A0A74" KeyPath="yes" Source="$(var.CSYT.TargetDir)\natives_blob.bin" />
             </Component>
+            <Component Id="cmpBC4FC00A26E7D32479D42D3411317FC5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil90A8AAD9FC612906D405476D61CEA3F4" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            
             <Component Id="cmp502591F7CF4C605EDE7BA63509CB751F" Directory="INSTALLFOLDER" Guid="*">
                 <File Id="fil880CC9252F2536067E68688D233C67AD" KeyPath="yes" Source="$(var.CSYT.TargetDir)\snapshot_blob.bin" />
             </Component>
@@ -106,6 +111,12 @@
             </Component>
             <Component Id="cmp3B66DCEB0789C8C518943D089A4199DD" Directory="dirCA02E4A7CC6C21D952C5059DC56408F4" Guid="*">
                 <File Id="fil28E93CE868CB9B868ADCBF0F50DDA1ED" KeyPath="yes" Source="$(var.CSYT.TargetDir)\GPUCache\index" />
+            </Component>
+            <Component Id="cmp936EFEE6D78EB7202B749AB4C5D0BC38" Directory="dir4A939956C3CBABAE8772A809E8B414F8" Guid="*">
+                <File Id="filB5925D7B067A7161D298F109280C70FC" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Languages\English.json" />
+            </Component>
+            <Component Id="cmp1C7C8623D410DF73C5F412568909C0E8" Directory="dir4A939956C3CBABAE8772A809E8B414F8" Guid="*">
+                <File Id="filE48E7838E7BF37932C5FD0B978DAAAEA" KeyPath="yes" Source="$(var.CSYT.TargetDir)\Languages\Portugues.json" />
             </Component>
             <Component Id="cmp93B53FD801CE3270DE5D9AF01811CD8F" Directory="dir07100F2E598E14B511BAF734827AE4AB" Guid="*">
                 <File Id="fil32C51E9E820B1FEE0FB7D2E6E3650736" KeyPath="yes" Source="$(var.CSYT.TargetDir)\locales\am.pak" />

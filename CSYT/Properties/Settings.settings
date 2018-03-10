@@ -14,5 +14,8 @@
     <Setting Name="Opacity" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
