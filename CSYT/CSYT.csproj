@@ -162,6 +162,9 @@
     <None Include="Languages\English.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Languages\Portugues.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Output.wxs">
       <SubType>Designer</SubType>
     </None>
@@ -182,6 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Filter.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Languages\Portugues_shortcuts.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
