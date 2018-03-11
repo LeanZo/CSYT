@@ -24,5 +24,6 @@
   "Settings_EnableVideoControls": "Ativar controles do video",
   "Settings_Opacity": "Opacidade",
   "Settings_OK": "OK",
-  "Settings_Cancel": "Cancelar"
+  "Settings_Cancel": "Cancelar",
+  "Settings_YouMustRestart": "Você deve reiniciar o CSYT para que a mudança de idioma tenha efeito."
 }

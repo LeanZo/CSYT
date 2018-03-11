@@ -50,7 +50,11 @@ namespace CSYT
         // Saves settings
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.Language = CBoxLanguage.SelectedItem.ToString();
+            if (Properties.Settings.Default.Language != CBoxLanguage.SelectedItem.ToString())
+            {
+                Properties.Settings.Default.Language = CBoxLanguage.SelectedItem.ToString();
+                MessageBox.Show(this, Languages.Get("Settings_YouMustRestart"), VersionInfo.AppNameAndVersion);
+            }
 
             Properties.Settings.Default.Autoplay = ChkAutoplay.IsChecked.Value ? 1 : 0;
 
