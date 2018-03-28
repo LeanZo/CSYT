@@ -47,6 +47,11 @@ namespace CSYT
             TextBlockUrl.Text = Languages.Get("ChangeVideo_InsertVideoUrl");
             ChkLoop.Content = Languages.Get("ChangeVideo_Loop");
             BtnOk.Content = Languages.Get("ChangeVideo_OK");
+
+            if (IsValidYoutubeUrl(Clipboard.GetText(TextDataFormat.Text)))
+            {
+                TextBoxUrl.Text = Clipboard.GetText(TextDataFormat.Text);
+            }
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
@@ -95,12 +100,17 @@ namespace CSYT
                 window.WebBrowser.Load(String.Format(@"https://www.youtube.com/embed/{0}?iv_load_policy=3&fs=0&rel=1&{1}&{2}", videoId, userParams, playListId));
         }
 
-        // Checks if TextBlock_Url.Text is a valid Youtube Url
+        // Only enables OK button if a valid url is provided.
         private void TextBoxUrl_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBlockUrl.Text = TextBoxUrl.Text != string.Empty ? string.Empty : "Insert Video Url...";
 
-            BtnOk.IsEnabled = Regex.IsMatch(TextBoxUrl.Text, @"youtube.com/.*?watch\?v=([^\/&]+)");
+            BtnOk.IsEnabled = IsValidYoutubeUrl(TextBoxUrl.Text);
+        }
+
+        private static bool IsValidYoutubeUrl(string url)
+        {
+            return Regex.IsMatch(url, @"youtube.com/.*?watch\?v=([^\/&]+)");
         }
     }
 }
